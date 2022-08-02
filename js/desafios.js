@@ -11,3 +11,4 @@ for (n=1; n<=cP; n++){
 
 
 console.log("El promedio de estatura de las", cP, "personas es de:", sE/cP, "centímetros.")
+
