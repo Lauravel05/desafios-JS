@@ -1,68 +1,3 @@
-/* 
-
----------- SIMULADOR INTERACIVO ----------
-
-function saludar(){
-    let nombre = prompt("Ingresa tu nombre");
-    while (nombre === "" || nombre === null){
-        nombre = prompt("Ingresa tu nombre");
-    }
-    alert(nombre + " " + "Bienvenido(a) a Velas Caydis")
-}
-
-function mostrarProducto(){
-    let producto; 
-    do{
-        producto = prompt("¿Qué vela deseas comprar? \n 1.Velón #8 \n 2. Velon #9 \n 3. Pebeteros \n 4. Vela aromatizada ");
-    }while(producto != 1 && producto != 2 && producto != 3 && producto != 4);
-
-        switch(producto){
-            case "1":
-                return "Velón #8"
-            case "2":
-                return "Velón #9"
-            case "3":
-                return "Pebeteros"
-            case "4":
-                return "Vela aromatizada"
-        }
-}
-
-function validarPrecio(producto){
-    if(producto === "Velón #8"){
-        return 8600;
-    }else if(producto === "Velón #9"){
-        return 11000;
-    }else if(producto === "Pebeteros"){
-        return 2000;
-    }else{
-        return 4500;
-    }
-}
-
-function cobrar(productos,precio){
-    alert("Estás comprando el producto: " + productos.toUpperCase() + "\nEl precio es de: " + precio);
-
-    let abonar = prompt("¿Con cuánto dinero vas a pagar?");
-    if (abonar > precio){
-        alert("Sus vueltas son de: $" + (abonar - precio))
-    }else{
-        alert("Lo siento, no tienes dinero suficiente para comprar este producto.")
-    }
-
-}
-
-function despedir(){
-    alert("Gracias por comprar en Velas Caydis")
-}
-
-saludar();
-let productoSeleccionado = mostrarProducto();
-let precioProducto = validarPrecio(productoSeleccionado)
-cobrar(productoSeleccionado,precioProducto);
-despedir()
-
-*/
 
 // slider main
 
@@ -83,12 +18,66 @@ function moverIzquierda(){
 }
 
 btnRight.addEventListener("click", function() {
-     moverDerecha()
-    })
+    moverDerecha()
+   })
 
 btnLeft.addEventListener("click", function() {
-    moverIzquierda()
-    })
+   moverIzquierda()
+   })
+
+// filtrado de busqueda
+
+function bucadorInterno() {
+    let filter = inputSearch.value.toUpperCase();
+    let li = box_search("li");
+
+    for (i = 0; i < li.length; i++){
+
+        a = li[i].tagName ("a")[0]
+        textValue = a.textContent || a.innerText;
+
+        if(textValue.toUpperCase(). filter > -1) {
+
+            li[i].style.display = ""
+
+        }else{
+            li[i].style.display = "none"
+        }
+    }
+}
+
+function mostrarBuscador() {
+
+}
+
+function ocultarBuscador() {
+
+}
+
+// formulario eventos
+
+const formulario = document.getElementById('form');
+
+formulario.addEventListener('submit', function(e){
+
+    e.preventDefault();
+    let mail = document.getElementById('nombre-form').value
+    console.log(mail)
+})
+
+formulario.addEventListener('submit', function(e){
+
+    e.preventDefault();
+    let mail = document.getElementById('apellidos-form').value
+    console.log(mail)
+})
+
+formulario.addEventListener('submit', function(e){
+
+    e.preventDefault();
+    let mail = document.getElementById('email-form').value
+    console.log(mail)
+})
 
 // carrito de compras
 
@@ -162,33 +151,3 @@ while(seleccion != "no"){
 
 const total = carrito.reduce((acc, el) => acc + el.precio * el.unidades, 0)
 console.log(`El total a pagar por su compra es: ${total}`)
-
-// filtrado de busqueda
-
-function bucadorInterno() {
-    let filter = inputSearch.value.toUpperCase();
-    let li = box_search("li");
-
-    for (i = 0; i < li.length; i++){
-
-        a = li[i].tagName ("a")[0]
-        textValue = a.textContent || a.innerText;
-
-        if(textValue.toUpperCase(). filter > -1) {
-
-            li[i].style.display = ""
-
-        }else{
-            li[i].style.display = "none"
-        }
-    }
-}
-
-function mostrarBuscador() {
-
-}
-
-function ocultarBuscador() {
-
-}
-
